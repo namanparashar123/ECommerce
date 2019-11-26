@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   get 'orders/new'
   get 'order_items/index'
+  get 'products/index'
   get 'products/show'
   get 'categories/index'
   get 'products/show_all_pros'
@@ -13,6 +14,12 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index] do
     resources :products, only: [:index]
+  end
+
+  resources :products, only: :show do
+    collection do
+      get 'products_index'
+    end
   end
 
   get '/cart', to: 'order_items#index'
