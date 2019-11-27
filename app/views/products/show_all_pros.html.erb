@@ -15,3 +15,12 @@
                  locals: { name_is_link: true }
       %>
 </div>
+
+<h1 class="title is-1">New Products</h1>
+<div class="columns is-multiline">
+  <%= render partial: "product", collection: @new_prod, locals: { name_is_link: true } %>
+</div>
+
+<h1 class="title is-1">Recently Updated</h1>
+<div class="columns is-multiline">
+  <%= render partial: "product", collection: @recent_updates, locals: { name_is_link: true } %>

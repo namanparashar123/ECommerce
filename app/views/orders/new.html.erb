@@ -1,5 +1,20 @@
 <h1>Checkout</h1>
 
+<% if user_signed_in? %>
+  <p>Confirm Details</p>
+  <%= form_for @order, url: checkout_path do |f| %>
+    <div class="form-group">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, :value => current_user.name %>
+    </div>
+    <p>Address: <%=current_user.address%></p>
+    <p>Postal Code: <%=current_user.postal_code%></p>
+    <p>City: <%=current_user.city%></p>
+    <p>Province: <%=current_user.province%></p>
+    </br>
+    <p>SubTotal: <%= number_to_currency current_cart.sub_total  %></p>
+  <% end %>
+<% else %>
 <%= form_for @order, url: checkout_path do |f| %>
 
   <div class="form-group">
@@ -13,5 +28,6 @@
   </div>
 
   <%= f.submit 'Checkout' %>
+  <% end %>
 
 <% end %>
