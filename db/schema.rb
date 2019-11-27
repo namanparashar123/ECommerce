@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_27_150211) do
+ActiveRecord::Schema.define(version: 2019_11_27_211851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,8 +134,9 @@ ActiveRecord::Schema.define(version: 2019_11_27_150211) do
     t.string "address"
     t.string "postal_code"
     t.string "city"
-    t.string "province"
+    t.bigint "province_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["province_id"], name: "index_users_on_province_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -145,4 +146,5 @@ ActiveRecord::Schema.define(version: 2019_11_27_150211) do
   add_foreign_key "product_categories", "categories"
   add_foreign_key "product_categories", "products"
   add_foreign_key "product_variants", "products"
+  add_foreign_key "users", "provinces"
 end
