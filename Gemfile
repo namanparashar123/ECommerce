@@ -34,6 +34,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'carrierwave', '~> 2.0'
 gem 'figaro'
+gem 'rubocop'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
