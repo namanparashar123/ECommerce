@@ -17,14 +17,14 @@ class ShoppingCart
     order.items.sum(:quantity)
   end
 
-  def add_item(product_id:, quantity: 1)
+  def add_item(product_id:, quantity: 1, tax:)
     product = Product.find(product_id)
 
-    order_item = order.items.find_or_create_by(
+    order_item = order.items.find_or_initialize_by(
       product_id: product_id
     )
 
-    order_item.price = product.price
+    order_item.price = product.price + (product.price * tax)
     order_item.quantity = quantity
 
     ActiveRecord::Base.transaction do
@@ -33,12 +33,12 @@ class ShoppingCart
     end
   end
 
-  def update_item(product_id:, quantity:)
+  def update_item(product_id:, quantity:, tax:)
     product = Product.find(product_id)
     order_item = order.items.find_or_initialize_by(
       product_id: product_id
     )
-    order_item.price = product.price #+ (product.price * tax)
+    order_item.price = product.price + (product.price * tax)
     order_item.quantity = quantity
     ActiveRecord::Base.transaction do
       order_item.save
