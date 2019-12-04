@@ -1,5 +1,4 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<h1 class="title is-2">Products</h1>
 
 <%= form_with(url: products_show_all_pros_path, method: "get", local: true) do %>
   <%= select_tag "category_id", options_from_collection_for_select(Category.all, "id", "title", '10'), html: {selected: true} %>
@@ -9,18 +8,20 @@
 <% end %>
 
 <%= paginate @all_products%>
+
+<h1 class="title is-2">New Products</h1>
+<div class="columns is-multiline">
+  <%= render partial: "product", collection: @new_prod, locals: { name_is_link: true } %>
+</div>
+
+
+<h1 class="title is-2">Recently Updated</h1>
+<div class="columns is-multiline">
+  <%= render partial: "product", collection: @recent_updates, locals: { name_is_link: true } %>
+
 <div class="columns is-multiline">
       <%= render partial: "product",
                  collection: @all_products,
                  locals: { name_is_link: true }
       %>
 </div>
-
-<h1 class="title is-1">New Products</h1>
-<div class="columns is-multiline">
-  <%= render partial: "product", collection: @new_prod, locals: { name_is_link: true } %>
-</div>
-
-<h1 class="title is-1">Recently Updated</h1>
-<div class="columns is-multiline">
-  <%= render partial: "product", collection: @recent_updates, locals: { name_is_link: true } %>
