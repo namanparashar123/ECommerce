@@ -1,5 +1,4 @@
-<h1>Current Cart</h1>
-<p>Find me in app/views/order_items/index.html.erb</p>
+<h1 class="title is-2">Your Cart</h1>
 <table>
   <thead>
      <tr>
@@ -38,5 +37,8 @@
     </tr>
   </tfoot>
 </table>
-
-<%= link_to 'Checkout', checkout_path %>
+</br>
+</br>
+<div class="has-text-white button is-success">
+  <%= link_to 'Checkout', checkout_path %>
+</div>

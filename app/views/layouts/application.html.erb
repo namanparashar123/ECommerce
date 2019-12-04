@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Store</title>
+    <title>MyCart</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,10 +21,10 @@
         <p class="alert"><%= alert %></p>
       </div>
       <% end %>
-      <nav id="app" class="navbar is-info" role="navigation" aria-label="main navigation">
+      <nav id="app" class="navbar is-warning" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <%= link_to root_path, class:"navbar-item" do %>
-            <h1 class="title is-5">Ecomm Project</h1>
+            <h1 class="title is-3">MyCart</h1>
           <% end  %>
 
           <a role="button" class="navbar-burger burger" v-on:click="showNav = !showNav" v-bind:class="{ 'is-active' : showNav }" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -52,7 +52,7 @@
                 </div>
               <% else %>
                 <div class="buttons">
-                  <%= link_to "Log In", new_user_session_path, class:" button is-primary" %>
+                  <%= link_to "Log In", new_user_session_path, class:" button has-background-black has-text-white-bis	" %>
                   <%= link_to "Sign up", new_user_registration_path, class:"button is-light"%>
                 </div>
               <% end %>
