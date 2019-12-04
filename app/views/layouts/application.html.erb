@@ -39,13 +39,13 @@
           <div class="navbar-end">
             <div class="navbar-item">
 
-              <% if user_signed_in? %>
-                <%= link_to "Home", root_path, class: "navbar-item" %>
-                <%= link_to "All Products", products_show_all_pros_path, class: "navbar-item is-white" %>
-                <%= link_to pluralize(current_cart.items_count, 'item'), cart_path, class: "navbar-item is-white" %>
+              <% if user_signed_in?%>
+                <%= link_to "Home", root_path, class: "button navbar-item has-background-black has-text-white" %>
+                <%= link_to "All Products", products_show_all_pros_path, class: "button navbar-item has-background-black has-text-white" %>
+                <%= link_to pluralize(current_cart.items_count, 'item'), cart_path, class: "button navbar-item has-background-black has-text-white" %>
                 <div class="navbar-item has-dropdown is-hoverable">
-                  <%= link_to 'Account', edit_user_registration_path, class: "navbar-link" %>
-                  <div class="navbar-dropdown is-right">
+                  <%= link_to 'Account', edit_user_registration_path, class: " navbar-link" %>
+                  <div class="navbar-dropdown is-right has-text-white">
                     <%= link_to current_user.name, edit_user_registration_path, class:"navbar-item" %>
                     <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"navbar-item" %>
                   </div>

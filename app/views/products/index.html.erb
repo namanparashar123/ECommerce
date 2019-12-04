@@ -1,11 +1,11 @@
 <h1 class="title is-2">Products</h1>
 <h2>
-  <%= link_to "Categories", root_path %> /
+  <%= link_to "Categories", root_path, class:"tag is-link title is-6" %> /
   <%= @category.title %> /
   Products
 </h2>
 
-<ol>
+<ol class="title is-5">
   <% @products.each do |product| %>
     <li>
       <%= product.title %> (<%= number_to_currency product.price %>)
@@ -13,7 +13,7 @@
       <%= form_tag order_items_path do %>
         <%= hidden_field_tag :product_id, product.id %>
         <%= number_field_tag :quantity, 1 %>
-        <%= submit_tag "Add to Cart" %>
+        <%= submit_tag "Add to Cart", class:"button is-primary" %>
       <% end %>
 
       <ul>

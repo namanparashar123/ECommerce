@@ -2,12 +2,12 @@
 
 <%= form_with(url: products_show_all_pros_path, method: "get", local: true) do %>
   <%= select_tag "category_id", options_from_collection_for_select(Category.all, "id", "title", '10'), html: {selected: true} %>
-  <%= label_tag(:q, "Search for Products:") %>
+  <%= label_tag(:q, "Search for Products:")%>
   <%= text_field_tag(:query) %>
   <%= submit_tag("Search") %>
 <% end %>
 
-<%= paginate @all_products%>
+<%= paginate @all_products, class:"pagination"%>
 
 <h1 class="title is-2">New Products</h1>
 <div class="columns is-multiline">
@@ -19,6 +19,7 @@
 <div class="columns is-multiline">
   <%= render partial: "product", collection: @recent_updates, locals: { name_is_link: true } %>
 
+<h1 class="title is-2">All Products</h1>
 <div class="columns is-multiline">
       <%= render partial: "product",
                  collection: @all_products,
